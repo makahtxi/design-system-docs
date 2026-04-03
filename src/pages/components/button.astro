@@ -1,0 +1,92 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+import Button from '../../components/Base/BasicButton';
+import ButtonPlayground from '../../components/Base/ButtonPlayground';
+---
+
+<DocLayout title="Button">
+	<p>A versatile button component with multiple variants and states, following the design system specifications.</p>
+
+	<section>
+		<h2>Anatomy</h2>
+		<p>Understanding the building blocks of our primary action component.</p>
+		<div class="anatomy-container">
+			<img src="/Button%20Anatomy.png" alt="Button Anatomy" />
+		</div>
+	</section>
+
+	<section>
+		<h2>Interactive Playground</h2>
+		<p>Use the sidebar to explore different variants and interact with the button to see its states in action.</p>
+		<ButtonPlayground client:load />
+	</section>
+
+	<section>
+		<h2>Reference: Static States</h2>
+		<div class="component-preview">
+			<div class="preview-item">
+				<p class="label">Default State</p>
+				<Button text="Default" client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Hover Overlay</p>
+				<Button text="Hover" state="Hover" client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Pressed State</p>
+				<Button text="Pressed" state="Pressed" client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Focus Ring</p>
+				<Button text="Focus" state="Focus" client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Disabled State</p>
+				<Button text="Disabled" state="Disabled" client:load />
+			</div>
+		</div>
+	</section>
+
+	<style>
+		section {
+			margin-top: 40px;
+		}
+		h2 {
+			margin-bottom: 20px;
+			border-bottom: 1px solid #eee;
+			padding-bottom: 10px;
+		}
+		.anatomy-container {
+			background: #fafafa;
+			border: 1px solid #eee;
+			border-radius: 8px;
+			overflow: hidden;
+			display: flex;
+		}
+		.anatomy-container img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+		.component-preview {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 30px;
+			padding: 40px;
+			background: #fafafa;
+			border: 1px solid #eee;
+			border-radius: 8px;
+		}
+		.preview-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+		}
+		.label {
+			font-size: 0.8rem;
+			color: #666;
+			margin: 0;
+		}
+	</style>
+</DocLayout>

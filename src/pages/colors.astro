@@ -1,0 +1,239 @@
+---
+import DocLayout from '../layouts/DocLayout.astro';
+import ColorSwatch from '../components/Base/ColorSwatch';
+
+const primitives = {
+  grey: [
+    { name: 'grey-100', hex: '#f4f4f4' },
+    { name: 'grey-200', hex: '#bfbfbf' },
+    { name: 'grey-300', hex: '#a8a8a8' },
+    { name: 'grey-400', hex: '#8c8c8c' },
+    { name: 'grey-500', hex: '#767676' },
+    { name: 'grey-600', hex: '#666666' },
+    { name: 'grey-700', hex: '#525252' },
+    { name: 'grey-800', hex: '#333333' },
+    { name: 'grey-900', hex: '#121212' },
+  ],
+  red: [
+    { name: 'red-100', hex: '#fce4e4' },
+    { name: 'red-200', hex: '#f5acac' },
+    { name: 'red-300', hex: '#f18b8b' },
+    { name: 'red-400', hex: '#ec6666' },
+    { name: 'red-500', hex: '#e21212' },
+    { name: 'red-600', hex: '#cc1010' },
+    { name: 'red-700', hex: '#a60d0d' },
+    { name: 'red-800', hex: '#810a0a' },
+    { name: 'red-900', hex: '#5d0707' },
+  ],
+  blue: [
+    { name: 'blue-100', hex: '#dcebfe' },
+    { name: 'blue-200', hex: '#93c2fd' },
+    { name: 'blue-300', hex: '#6aaafc' },
+    { name: 'blue-400', hex: '#3d91fb' },
+    { name: 'blue-500', hex: '#006efa' },
+    { name: 'blue-600', hex: '#005fd9' },
+    { name: 'blue-700', hex: '#004db0' },
+    { name: 'blue-800', hex: '#003b87' },
+    { name: 'blue-900', hex: '#002a60' },
+  ],
+  purple: [
+    { name: 'purple-100', hex: '#efe5fe' },
+    { name: 'purple-200', hex: '#cfb1fc' },
+    { name: 'purple-300', hex: '#be94fc' },
+    { name: 'purple-400', hex: '#ab75fb' },
+    { name: 'purple-500', hex: '#924df9' },
+    { name: 'purple-600', hex: '#7f3ede' },
+    { name: 'purple-700', hex: '#6632b4' },
+    { name: 'purple-800', hex: '#4f278b' },
+    { name: 'purple-900', hex: '#411f40' },
+  ],
+  pink: [
+    { name: 'pink-100', hex: '#ffe1fe' },
+    { name: 'pink-200', hex: '#ff9bfa' },
+    { name: 'pink-300', hex: '#ff7bf9' },
+    { name: 'pink-400', hex: '#d466cf' },
+    { name: 'pink-500', hex: '#ae54aa' },
+    { name: 'pink-600', hex: '#964893' },
+    { name: 'pink-700', hex: '#793a76' },
+    { name: 'pink-800', hex: '#5d2d5b' },
+    { name: 'pink-900', hex: '#3c2800' },
+  ],
+  orange: [
+    { name: 'orange-100', hex: '#ffe8b8' },
+    { name: 'orange-200', hex: '#ffab00' },
+    { name: 'orange-300', hex: '#e39900' },
+    { name: 'orange-400', hex: '#c58400' },
+    { name: 'orange-500', hex: '#a16c00' },
+    { name: 'orange-600', hex: '#8a5d00' },
+    { name: 'orange-700', hex: '#6f4b00' },
+    { name: 'orange-800', hex: '#563900' },
+    { name: 'orange-900', hex: '#3c2800' },
+  ],
+  yellow: [
+    { name: 'yellow-100', hex: '#ffeb74' },
+    { name: 'yellow-200', hex: '#ffdb00' },
+    { name: 'yellow-300', hex: '#dcbd00' },
+    { name: 'yellow-400', hex: '#c2a700' },
+    { name: 'yellow-500', hex: '#a89000' },
+    { name: 'yellow-600', hex: '#897600' },
+    { name: 'yellow-700', hex: '#766500' },
+    { name: 'yellow-800', hex: '#5f5100' },
+    { name: 'yellow-900', hex: '#493f00' },
+  ],
+  green: [
+    { name: 'green-100', hex: '#c8f4d6' },
+    { name: 'green-200', hex: '#39d66a' },
+    { name: 'green-300', hex: '#32c05e' },
+    { name: 'green-400', hex: '#2ba651' },
+    { name: 'green-500', hex: '#238742' },
+    { name: 'green-600', hex: '#1e7539' },
+    { name: 'green-700', hex: '#195e2e' },
+    { name: 'green-800', hex: '#134824' },
+    { name: 'green-900', hex: '#0d3219' },
+  ],
+  teal: [
+    { name: 'teal-100', hex: '#b7f6e3' },
+    { name: 'teal-200', hex: '#27e4ab' },
+    { name: 'teal-300', hex: '#21be8f' },
+    { name: 'teal-400', hex: '#1ca47c' },
+    { name: 'teal-500', hex: '#178765' },
+    { name: 'teal-600', hex: '#147357' },
+    { name: 'teal-700', hex: '#105d46' },
+    { name: 'teal-800', hex: '#0c4736' },
+    { name: 'teal-900', hex: '#093226' },
+  ],
+  neutral: [
+    { name: 'white', hex: '#ffffff' },
+    { name: 'black', hex: '#000000' },
+  ]
+};
+
+const brand = {
+  primary: [
+    { name: 'primary', hex: '#e21212', token: 'red-500' },
+    { name: 'white', hex: '#ffffff', token: 'neutral-white' },
+    { name: 'black', hex: '#000000', token: 'neutral-black' },
+    { name: 'discount', hex: '#ffdb00', token: 'yellow-200' },
+  ],
+  category: [
+    { name: 'category-blue', hex: '#006efa', token: 'blue-500' },
+    { name: 'category-orange', hex: '#ffab00', token: 'orange-200' },
+    { name: 'category-yellow', hex: '#ffdb00', token: 'yellow-200' },
+    { name: 'category-green', hex: '#238742', token: 'green-500' },
+    { name: 'category-purple', hex: '#924df9', token: 'purple-500' },
+    { name: 'category-pink', hex: '#ff7bf9', token: 'pink-300' },
+    { name: 'category-teal', hex: '#27e4ab', token: 'teal-200' },
+  ],
+  seasonal: [
+    { name: 'summer', hex: '#ffab00', token: 'orange-200' },
+    { name: 'christmas', hex: '#1e7539', token: 'green-600' },
+    { name: 'easter', hex: '#924df9', token: 'purple-500' },
+    { name: 'valentines', hex: '#ff7bf9', token: 'pink-300' },
+    { name: 'new-years-1', hex: '#000000', token: 'neutral-black' },
+    { name: 'new-years-2', hex: '#ffdb00', token: 'yellow-200' },
+  ]
+};
+
+const ui = {
+  background: [
+    { name: 'bg-light', hex: '#f4f4f4', token: 'gray-100' },
+    { name: 'bg-dark', hex: '#121212', token: 'gray-90' },
+  ],
+  container: [
+    { name: 'container-light', hex: '#ffffff', token: 'neutral-white' },
+    { name: 'container-dark', hex: '#333333', token: 'gray-800' },
+  ],
+  stroke: [
+    { name: 'container-b-light', hex: '#a8a8a8', token: 'neutral-white' },
+    { name: 'container-b-dark', hex: '#666666', token: 'gray-800' },
+  ]
+};
+---
+
+<DocLayout title="Colors">
+	<p>Our color system is built on a foundation of primitives that are then mapped to specific semantic tokens for Brand and UI usage.</p>
+
+	<section>
+		<h2>Brand Colors</h2>
+		<p>Semantic colors used to represent our brand identity and product categories.</p>
+		
+		<h3>Primary</h3>
+		<div class="color-grid">
+			{brand.primary.map(c => <ColorSwatch name={c.name} hex={c.hex} token={c.token} />)}
+		</div>
+
+		<h3>Category</h3>
+		<div class="color-grid">
+			{brand.category.map(c => <ColorSwatch name={c.name} hex={c.hex} token={c.token} />)}
+		</div>
+
+		<h3>Seasonal</h3>
+		<div class="color-grid">
+			{brand.seasonal.map(c => <ColorSwatch name={c.name} hex={c.hex} token={c.token} />)}
+		</div>
+	</section>
+
+	<section>
+		<h2>UI Colors</h2>
+		<p>Functional colors used for backgrounds, containers, and borders throughout the interface.</p>
+		
+		<h3>Background</h3>
+		<div class="color-grid">
+			{ui.background.map(c => <ColorSwatch name={c.name} hex={c.hex} token={c.token} />)}
+		</div>
+
+		<h3>Container</h3>
+		<div class="color-grid">
+			{ui.container.map(c => <ColorSwatch name={c.name} hex={c.hex} token={c.token} />)}
+		</div>
+
+		<h3>Stroke</h3>
+		<div class="color-grid">
+			{ui.stroke.map(c => <ColorSwatch name={c.name} hex={c.hex} token={c.token} />)}
+		</div>
+	</section>
+
+	<section>
+		<h2>Primitives</h2>
+		<p>The core palette of colors available in our design system.</p>
+		
+		{Object.entries(primitives).map(([group, colors]) => (
+			<div class="primitive-group">
+				<h3 class="capitalize">{group}</h3>
+				<div class="color-grid">
+					{colors.map(c => <ColorSwatch name={c.name} hex={c.hex} />)}
+				</div>
+			</div>
+		))}
+	</section>
+
+	<style>
+		section {
+			margin-top: 60px;
+		}
+		h2 {
+			margin-bottom: 20px;
+			border-bottom: 1px solid #eee;
+			padding-bottom: 10px;
+			font-size: 2rem;
+			color: #111;
+		}
+		h3 {
+			margin: 40px 0 20px;
+			font-size: 1.4rem;
+			color: #444;
+		}
+		.capitalize {
+			text-transform: capitalize;
+		}
+		.color-grid {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 30px;
+			margin-bottom: 40px;
+		}
+		.primitive-group {
+			margin-bottom: 60px;
+		}
+	</style>
+</DocLayout>

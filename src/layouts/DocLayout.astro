@@ -1,0 +1,100 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | Design System Docs</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Jersey+15&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/typography">Typography</a></li>
+				<li><a href="/colors">Colors</a></li>
+				<li>
+					Components
+					<ul>
+						<li><a href="/components/button">Button</a></li>
+						<li>
+							<a href="/components/product-card">Product Card</a>
+						</li>
+						<li><a href="/components/input-form">Input Form</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+		<main>
+			<div class="content-wrapper">
+				<h1>{title}</h1>
+				<slot />
+			</div>
+		</main>
+		<style is:global>
+			:root {
+				--bg-color: #f4f4f4;
+				--text-color: #333;
+			}
+			body {
+				font-family: sans-serif;
+				margin: 0;
+				display: flex;
+				background-color: var(--bg-color);
+			}
+			nav {
+				width: 250px;
+				background: #fff;
+				padding: 20px;
+				height: 100vh;
+				border-right: 1px solid #ddd;
+				position: sticky;
+				top: 0;
+				flex-shrink: 0;
+			}
+			main {
+				flex: 1;
+				padding: 40px;
+				display: flex;
+				justify-content: center;
+				overflow-y: auto;
+			}
+			.content-wrapper {
+				width: 100%;
+				max-width: 1400px;
+				margin: auto;
+			}
+			h1 {
+				margin-top: 0;
+				font-size: 2.5rem;
+				border-bottom: 2px solid #eee;
+				padding-bottom: 10px;
+				margin-bottom: 30px;
+			}
+			li {
+				margin: 10px 0;
+			}
+			a {
+				text-decoration: none;
+				color: #0070f3;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</body>
+</html>

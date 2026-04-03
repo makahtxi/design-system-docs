@@ -1,0 +1,128 @@
+---
+import DocLayout from "../../layouts/DocLayout.astro";
+import ProductCard from "../../components/Base/ProductCard";
+import ProductCardPlayground from "../../components/Base/ProductCardPlayground";
+---
+
+<DocLayout title="Product Card">
+	<p>
+		A comprehensive card component for displaying product information,
+		including prices, discounts, and availability status.
+	</p>
+
+	<section>
+		<h2>Anatomy</h2>
+		<p>
+			Understanding the building blocks and information hierarchy of the
+			Product Card component.
+		</p>
+		<div class="anatomy-container">
+			<img src="/Product%20Anatomy.png" alt="Product Card Anatomy" />
+		</div>
+	</section>
+
+	<section>
+		<h2>Interactive Playground</h2>
+		<p>
+			Explore different variants and configurations of the Product Card.
+			Toggle stickers, discounts, and card types to see how the component
+			adapts.
+		</p>
+		<ProductCardPlayground client:load />
+	</section>
+
+	<section>
+		<h2>Card Types</h2>
+		<p>
+			The Product Card supports three primary types, each with its own
+			visual style to represent different promotional states.
+		</p>
+		<div class="component-preview">
+			<div class="preview-item">
+				<p class="label">Default</p>
+				<ProductCard type="Default" client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Super Deal</p>
+				<ProductCard type="Super Deal" client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Black Friday</p>
+				<ProductCard type="Black Friday" client:load />
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<h2>Interactions</h2>
+		<p>
+			The card includes built-in hover, pressed, and focus states for a
+			rich interactive experience.
+		</p>
+		<div class="component-preview">
+			<div class="preview-item">
+				<p class="label">Hover State</p>
+				<ProductCard state="Hover" client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Pressed State</p>
+				<ProductCard state="Pressed" client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Focus State</p>
+				<ProductCard state="Focus" client:load />
+			</div>
+		</div>
+	</section>
+
+	<style>
+		section {
+			margin-top: 60px;
+		}
+		h2 {
+			margin-bottom: 20px;
+			border-bottom: 1px solid #eee;
+			padding-bottom: 10px;
+			font-size: 1.8rem;
+		}
+		.anatomy-container {
+			background: #fafafa;
+			border: 1px solid #eee;
+			border-radius: 8px;
+			overflow: hidden;
+			display: flex;
+			max-height: 700px;
+		}
+		.anatomy-container img {
+			height: auto;
+			display: block;
+			object-fit: contain;
+			max-width: 100%;
+			background-color: #f4f4f4;
+		}
+		.component-preview {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 40px;
+			padding: 40px;
+			background: #fafafa;
+			border: 1px solid #eee;
+			border-radius: 12px;
+			justify-content: center;
+		}
+		.preview-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 15px;
+		}
+		.label {
+			font-size: 0.9rem;
+			font-weight: 600;
+			color: #666;
+			margin: 0;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+	</style>
+</DocLayout>

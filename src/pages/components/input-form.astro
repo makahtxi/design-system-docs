@@ -1,0 +1,98 @@
+---
+import DocLayout from '../../layouts/DocLayout.astro';
+import BasicInput from '../../components/Base/BasicInput';
+import InputPlayground from '../../components/Base/InputPlayground';
+---
+
+<DocLayout title="Input Form">
+	<p>A versatile input component supporting multiple types including text, password, and dropdown variants with comprehensive state management.</p>
+
+	<section>
+		<h2>Interactive Playground</h2>
+		<p>Explore the different types and states of the Input component. Configure labels, requirements, and trailing icons to suit your needs.</p>
+		<InputPlayground client:load />
+	</section>
+
+	<section>
+		<h2>Input Types</h2>
+		<p>The input component comes in three primary variants for different data entry needs.</p>
+		<div class="component-preview">
+			<div class="preview-item">
+				<p class="label">Default</p>
+				<BasicInput type="Default" placeholder="Enter text..." client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Password</p>
+				<BasicInput type="Password" placeholder="Enter password..." client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Dropdown</p>
+				<BasicInput type="Dropdown" placeholder="Select option..." client:load />
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<h2>States</h2>
+		<p>Comprehensive visual feedback for different interaction states and validation outcomes.</p>
+		<div class="component-preview">
+			<div class="preview-item">
+				<p class="label">Default</p>
+				<BasicInput state="Default" client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Hover</p>
+				<BasicInput state="Hover" client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Selected (Focus)</p>
+				<BasicInput state="Selected" client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Error</p>
+				<BasicInput state="Error" client:load />
+			</div>
+			<div class="preview-item">
+				<p class="label">Disabled</p>
+				<BasicInput state="Disabled" client:load />
+			</div>
+		</div>
+	</section>
+
+	<style>
+		section {
+			margin-top: 60px;
+		}
+		h2 {
+			margin-bottom: 20px;
+			border-bottom: 1px solid #eee;
+			padding-bottom: 10px;
+			font-size: 1.8rem;
+		}
+		.component-preview {
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
+			padding: 40px;
+			background: #fafafa;
+			border: 1px solid #eee;
+			border-radius: 12px;
+		}
+		.preview-item {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 10px;
+			width: 100%;
+			max-width: 400px;
+		}
+		.label {
+			font-size: 0.9rem;
+			font-weight: 600;
+			color: #666;
+			margin: 0;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+	</style>
+</DocLayout>
