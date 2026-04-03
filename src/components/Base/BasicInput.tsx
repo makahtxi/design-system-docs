@@ -31,6 +31,7 @@ const BasicInput: React.FC<InputProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const value = controlledValue !== undefined ? controlledValue : internalValue;
 
@@ -140,7 +141,7 @@ const BasicInput: React.FC<InputProps> = ({
         onClick={handleToggleDropdown}
       >
         <input
-          type={type === 'Password' ? 'password' : 'text'}
+          type={type === 'Password' ? (showPassword ? 'text' : 'password') : 'text'}
           placeholder={placeholder}
           value={value}
           onChange={handleChange}
@@ -152,27 +153,37 @@ const BasicInput: React.FC<InputProps> = ({
         />
 
         {showTrailingIcon && (
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '20px',
-            height: '20px',
-            marginLeft: '10px',
-            color: tokens.text,
-            transform: type === 'Dropdown' && isOpen ? 'rotate(180deg)' : 'none',
-            transition: 'transform 0.2s',
-          }}>
+          <div 
+            onClick={(e) => {
+              if (type === 'Password') {
+                e.stopPropagation();
+                setShowPassword(!showPassword);
+              }
+            }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '20px',
+              height: '20px',
+              marginLeft: '10px',
+              color: tokens.text,
+              transform: type === 'Dropdown' && isOpen ? 'rotate(180deg)' : 'none',
+              transition: 'transform 0.2s',
+              cursor: type === 'Password' ? 'pointer' : 'inherit',
+            }}
+          >
             {trailingIcon || (
               type === 'Dropdown' ? (
                 <svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 1L5.5 5L10 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               ) : type === 'Password' ? (
-                <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 9C1 9 4.27273 2.5 10 2.5C15.7273 2.5 19 9 19 9C19 9 15.7273 15.5 10 15.5C4.27273 15.5 10 9 1 9Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <circle cx="10" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <img 
+                  src={showPassword ? "/password-open.svg" : "/password-close.svg"} 
+                  alt="Toggle Password Visibility" 
+                  style={{ width: '100%', height: '100%' }}
+                />
               ) : (
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M2.25 15.75V6.75L9 1.5L15.75 6.75V15.75H10.5V11.25H7.5V15.75H2.25Z" fill="currentColor" />
