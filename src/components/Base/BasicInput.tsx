@@ -153,7 +153,7 @@ const BasicInput: React.FC<InputProps> = ({
         />
 
         {showTrailingIcon && (
-          <div 
+          <div
             onClick={(e) => {
               if (type === 'Password') {
                 e.stopPropagation();
@@ -179,9 +179,9 @@ const BasicInput: React.FC<InputProps> = ({
                   <path d="M1 1L5.5 5L10 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               ) : type === 'Password' ? (
-                <img 
-                  src={showPassword ? "/password-open.svg" : "/password-close.svg"} 
-                  alt="Toggle Password Visibility" 
+                <img
+                  src={showPassword ? "/password-close.svg" : "/password-open.svg"}
+                  alt="Toggle Password Visibility"
                   style={{ width: '100%', height: '100%' }}
                 />
               ) : (

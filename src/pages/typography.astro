@@ -1,70 +1,192 @@
 ---
-import DocLayout from '../layouts/DocLayout.astro';
-import TypeSample from '../components/Base/TypeSample';
+import DocLayout from "../layouts/DocLayout.astro";
+import TypeSample from "../components/Base/TypeSample";
 
 const headings = [
-  { label: 'heading-2xl', family: 'Party', size: 48, weight: 900 },
-  { label: 'heading-xl', family: 'Party', size: 36, weight: 900 },
-  { label: 'heading-lg', family: 'Party', size: 32, weight: 900 },
-  { label: 'heading-md', family: 'Party', size: 24, weight: 900 },
-  { label: 'heading-sm', family: 'Party', size: 20, weight: 900 },
-  { label: 'heading-xs', family: 'Party', size: 16, weight: 900 },
-  { label: 'subheading', family: 'Party', size: 16, weight: 400 },
+	{ label: "heading-2xl", family: "Party", size: 48, weight: 900 },
+	{ label: "heading-xl", family: "Party", size: 36, weight: 900 },
+	{ label: "heading-lg", family: "Party", size: 32, weight: 900 },
+	{ label: "heading-md", family: "Party", size: 24, weight: 900 },
+	{ label: "heading-sm", family: "Party", size: 20, weight: 900 },
+	{ label: "heading-xs", family: "Party", size: 16, weight: 900 },
+	{ label: "subheading", family: "Party", size: 16, weight: 400 },
 ];
 
-const bodyText = "Experimenta os auscultadores Noise Cancelling sem fios Sony WH-CH720N - Som soberbo para todas as músicas, num estilo que se adapta a ti. Escolhe entre Preto, Branco, Azul ou Rosa.";
+const bodyText =
+	"Experimenta os auscultadores Noise Cancelling sem fios Sony WH-CH720N - Som soberbo para todas as músicas, num estilo que se adapta a ti. Escolhe entre Preto, Branco, Azul ou Rosa.";
 
 const body = [
-  { label: 'body-lg-heavy', family: 'Manrope', size: 16, weight: 700, sampleText: bodyText },
-  { label: 'body-lg', family: 'Manrope', size: 16, weight: 400, sampleText: bodyText },
-  { label: 'body-md-heavy', family: 'Manrope', size: 14, weight: 700, sampleText: bodyText },
-  { label: 'body-md', family: 'Manrope', size: 14, weight: 400, sampleText: bodyText },
-  { label: 'body-sm-heavy', family: 'Manrope', size: 12, weight: 700, sampleText: bodyText },
-  { label: 'body-sm', family: 'Manrope', size: 12, weight: 400, sampleText: bodyText },
-  { label: 'body-xs', family: 'Manrope', size: 10, weight: 400, sampleText: bodyText },
+	{
+		label: "body-lg-heavy",
+		family: "Manrope",
+		size: 16,
+		weight: 700,
+		sampleText: bodyText,
+	},
+	{
+		label: "body-lg",
+		family: "Manrope",
+		size: 16,
+		weight: 400,
+		sampleText: bodyText,
+	},
+	{
+		label: "body-md-heavy",
+		family: "Manrope",
+		size: 14,
+		weight: 700,
+		sampleText: bodyText,
+	},
+	{
+		label: "body-md",
+		family: "Manrope",
+		size: 14,
+		weight: 400,
+		sampleText: bodyText,
+	},
+	{
+		label: "body-sm-heavy",
+		family: "Manrope",
+		size: 12,
+		weight: 700,
+		sampleText: bodyText,
+	},
+	{
+		label: "body-sm",
+		family: "Manrope",
+		size: 12,
+		weight: 400,
+		sampleText: bodyText,
+	},
+	{
+		label: "body-xs",
+		family: "Manrope",
+		size: 10,
+		weight: 400,
+		sampleText: bodyText,
+	},
 ];
 
 const price = [
-  { label: 'price-lg', family: 'Party', size: 24, weight: 700, sampleText: '399,99' },
-  { label: 'price-md', family: 'Party', size: 16, weight: 800, sampleText: '399,99' },
-  { label: 'price-sm', family: 'Party', size: 12, weight: 400, sampleText: '399,99' },
-  { label: 'PVPr-no-stroke', family: 'Party', size: 12, weight: 400, sampleText: '1999,99€' },
-  { label: 'PVPr-stroke', family: 'Party', size: 12, weight: 400, sampleText: '1999,99€', textDecoration: 'line-through' },
-  { label: 'discount-indicator', family: 'Manrope', size: 10, weight: 700, sampleText: '-26% de desconto', textTransform: 'uppercase' },
+	{
+		label: "price-lg",
+		family: "Party",
+		size: 24,
+		weight: 700,
+		sampleText: "399,99",
+	},
+	{
+		label: "price-md",
+		family: "Party",
+		size: 16,
+		weight: 800,
+		sampleText: "399,99",
+	},
+	{
+		label: "price-sm",
+		family: "Party",
+		size: 12,
+		weight: 400,
+		sampleText: "399,99",
+	},
+	{
+		label: "PVPr-no-stroke",
+		family: "Party",
+		size: 12,
+		weight: 400,
+		sampleText: "1999,99€",
+	},
+	{
+		label: "PVPr-stroke",
+		family: "Party",
+		size: 12,
+		weight: 400,
+		sampleText: "1999,99€",
+		textDecoration: "line-through",
+	},
+	{
+		label: "discount-indicator",
+		family: "Manrope",
+		size: 12,
+		weight: 700,
+		sampleText: "-26% de desconto",
+		textTransform: "uppercase",
+	},
 ];
 
 const anchors = [
-  { label: 'anchor-lg', family: 'Manrope', size: 16, weight: 700, sampleText: 'Clica aqui.', textDecoration: 'underline' },
-  { label: 'anchor-md', family: 'Manrope', size: 14, weight: 700, sampleText: 'Clica aqui.', textDecoration: 'underline' },
-  { label: 'anchor-sm', family: 'Manrope', size: 12, weight: 700, sampleText: 'Clica aqui.', textDecoration: 'underline' },
-  { label: 'anchor-xs', family: 'Manrope', size: 10, weight: 700, sampleText: 'Clica aqui.', textDecoration: 'underline', textTransform: 'uppercase' },
+	{
+		label: "anchor-lg",
+		family: "Manrope",
+		size: 16,
+		weight: 700,
+		sampleText: "Clica aqui.",
+		textDecoration: "underline",
+	},
+	{
+		label: "anchor-md",
+		family: "Manrope",
+		size: 14,
+		weight: 700,
+		sampleText: "Clica aqui.",
+		textDecoration: "underline",
+	},
+	{
+		label: "anchor-sm",
+		family: "Manrope",
+		size: 12,
+		weight: 700,
+		sampleText: "Clica aqui.",
+		textDecoration: "underline",
+	},
+	{
+		label: "anchor-xs",
+		family: "Manrope",
+		size: 10,
+		weight: 700,
+		sampleText: "Clica aqui.",
+		textDecoration: "underline",
+		textTransform: "uppercase",
+	},
 ];
 ---
 
 <DocLayout title="Typography">
-	<p>Our typography system provides clear hierarchical rules for all text elements. It relies on the "Party" font family for highly expressive elements and "Manrope" for readable body and UI text.</p>
+	<p>
+		Our typography system provides clear hierarchical rules for all text
+		elements. It relies on the "Party" font family for highly expressive
+		elements and "Manrope" for readable body and UI text.
+	</p>
 
 	<section>
 		<h2>Headings</h2>
-		<p>Used for titles, major section breaks, and attention-grabbing text.</p>
+		<p>
+			Used for titles, major section breaks, and attention-grabbing text.
+		</p>
 		<div class="type-container">
-			{headings.map(t => <TypeSample {...t} />)}
+			{headings.map((t) => <TypeSample {...t} />)}
 		</div>
 	</section>
 
 	<section>
 		<h2>Body</h2>
-		<p>Used for descriptions, features, and informative elements that require sustained reading.</p>
+		<p>
+			Used for descriptions, features, and informative elements that
+			require sustained reading.
+		</p>
 		<div class="type-container">
-			{body.map(t => <TypeSample {...t} />)}
+			{body.map((t) => <TypeSample {...t} />)}
 		</div>
 	</section>
 
 	<section>
 		<h2>Price</h2>
-		<p>Specialized styles to display pricing, previous prices (PVPr), and discounts.</p>
+		<p>
+			Specialized styles to display pricing, previous prices (PVPr), and
+			discounts.
+		</p>
 		<div class="type-container">
-			{price.map(t => <TypeSample {...t} />)}
+			{price.map((t) => <TypeSample {...t} />)}
 		</div>
 	</section>
 
@@ -72,7 +194,7 @@ const anchors = [
 		<h2>Anchors</h2>
 		<p>Styles for links and interactive text elements.</p>
 		<div class="type-container">
-			{anchors.map(t => <TypeSample {...t} />)}
+			{anchors.map((t) => <TypeSample {...t} />)}
 		</div>
 	</section>
 
