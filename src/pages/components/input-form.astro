@@ -8,6 +8,14 @@ import InputPlayground from '../../components/Base/InputPlayground';
 	<p>A versatile input component supporting multiple types including text, password, and dropdown variants with comprehensive state management.</p>
 
 	<section>
+		<h2>Anatomy</h2>
+		<p>Understanding the building blocks and information hierarchy of the Input component.</p>
+		<div class="anatomy-container">
+			<img src="/Input%20Anatomy.png" alt="Input Anatomy" />
+		</div>
+	</section>
+
+	<section>
 		<h2>Interactive Playground</h2>
 		<p>Explore the different types and states of the Input component. Configure labels, requirements, and trailing icons to suit your needs.</p>
 		<InputPlayground client:load />
@@ -60,6 +68,18 @@ import InputPlayground from '../../components/Base/InputPlayground';
 	</section>
 
 	<style>
+		.anatomy-container {
+			background: #fafafa;
+			border: 1px solid #eee;
+			border-radius: 8px;
+			overflow: hidden;
+			display: flex;
+		}
+		.anatomy-container img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
 		.component-preview {
 			display: flex;
 			flex-direction: column;
