@@ -3,6 +3,80 @@ import DocLayout from '../layouts/DocLayout.astro';
 ---
 
 <DocLayout title="Introduction">
-	<p>Welcome to the Design System Documentation.</p>
-	<p>Select a category from the navigation menu to get started.</p>
+	<div class="intro-hero">
+		<p class="hero-sub">V1.0.0 — Internal Documentation</p>
+		<p class="hero-desc">Welcome to our official Design System. This resource contains all the building blocks, design tokens, and documentation needed to build consistent experiences across our products.</p>
+	</div>
+
+	<div class="grid-sections">
+		<div class="card">
+			<h3>Foundations</h3>
+			<p>Explore our core design tokens including brand colors and our signature typography system.</p>
+			<div class="links">
+				<a href="/colors">Colors →</a>
+				<a href="/typography">Typography →</a>
+			</div>
+		</div>
+		<div class="card">
+			<h3>Components</h3>
+			<div class="card-p">Our growing library of React components, built with performance and accessibility in mind.</div>
+			<div class="links">
+				<a href="/components/button">Button →</a>
+				<a href="/components/product-card">Product Card →</a>
+				<a href="/components/input-form">Input Form →</a>
+			</div>
+		</div>
+	</div>
+
+	<style>
+		.intro-hero {
+			margin-bottom: 80px;
+		}
+		.hero-sub {
+			color: var(--brand-primary);
+			font-weight: 800;
+			font-size: 14px;
+			text-transform: uppercase;
+			margin-bottom: 12px;
+		}
+		.hero-desc {
+			font-size: 1.5rem;
+			max-width: 800px;
+			line-height: 1.4;
+			color: #333;
+		}
+		.grid-sections {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 32px;
+		}
+		.card {
+			background: #fff;
+			padding: 40px;
+			border-radius: 16px;
+			border: 1px solid #eee;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+		}
+		.card h3 {
+			margin-bottom: 16px;
+		}
+		.card p, .card-p {
+			color: #666;
+			font-size: 1rem;
+			margin-bottom: 24px;
+		}
+		.links {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+		}
+		.links a {
+			font-weight: 700;
+			color: var(--brand-primary);
+			text-decoration: none;
+		}
+		.links a:hover {
+			text-decoration: underline;
+		}
+	</style>
 </DocLayout>

@@ -17,27 +17,30 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Jersey+15&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
 			rel="stylesheet"
 		/>
 	</head>
 	<body>
 		<nav>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/typography">Typography</a></li>
-				<li><a href="/colors">Colors</a></li>
-				<li>
-					Components
-					<ul>
-						<li><a href="/components/button">Button</a></li>
-						<li>
-							<a href="/components/product-card">Product Card</a>
-						</li>
-						<li><a href="/components/input-form">Input Form</a></li>
-					</ul>
-				</li>
-			</ul>
+			<div class="nav-header">
+				<a href="/" class="brand-logo">DESIGN SYSTEM</a>
+			</div>
+			<div class="nav-section">
+				<div class="nav-section-title">Foundations</div>
+				<ul>
+					<li><a href="/typography">Typography</a></li>
+					<li><a href="/colors">Colors</a></li>
+				</ul>
+			</div>
+			<div class="nav-section">
+				<div class="nav-section-title">Components</div>
+				<ul>
+					<li><a href="/components/button">Button</a></li>
+					<li><a href="/components/product-card">Product Card</a></li>
+					<li><a href="/components/input-form">Input Form</a></li>
+				</ul>
+			</div>
 		</nav>
 		<main>
 			<div class="content-wrapper">
@@ -46,54 +49,159 @@ const { title } = Astro.props;
 			</div>
 		</main>
 		<style is:global>
-			:root {
-				--bg-color: #f4f4f4;
-				--text-color: #333;
+			@font-face {
+				font-family: 'Party';
+				src: url('/Party-Heavy.otf') format('opentype');
+				font-weight: 900;
+				font-style: normal;
 			}
+			@font-face {
+				font-family: 'Party';
+				src: url('/Party-Bold_20231127 1 1.otf') format('opentype');
+				font-weight: 700;
+				font-style: normal;
+			}
+			@font-face {
+				font-family: 'Party';
+				src: url('/Party-Regular_20231127 1 1.otf') format('opentype');
+				font-weight: 400;
+				font-style: normal;
+			}
+
+			:root {
+				--bg-color: #f8f9fa;
+				--text-color: #1a1a1a;
+				--brand-primary: #e21212;
+				--brand-secondary: #006efa;
+				--nav-bg: #ffffff;
+				--border-color: #eee;
+				--sidebar-width: 280px;
+			}
+
 			body {
-				font-family: sans-serif;
+				font-family: 'Manrope', sans-serif;
 				margin: 0;
 				display: flex;
 				background-color: var(--bg-color);
+				color: var(--text-color);
+				-webkit-font-smoothing: antialiased;
 			}
+
 			nav {
-				width: 250px;
-				background: #fff;
-				padding: 20px;
+				width: var(--sidebar-width);
+				background: var(--nav-bg);
+				padding: 32px 24px;
 				height: 100vh;
-				border-right: 1px solid #ddd;
+				border-right: 1px solid var(--border-color);
 				position: sticky;
 				top: 0;
 				flex-shrink: 0;
+				box-sizing: border-box;
+				overflow-y: auto;
 			}
+
+			.nav-header {
+				margin-bottom: 48px;
+			}
+
+			.brand-logo {
+				font-family: 'Party', sans-serif;
+				font-size: 24px;
+				font-weight: 900;
+				color: var(--brand-primary);
+				text-decoration: none;
+				letter-spacing: 1px;
+			}
+
+			.nav-section {
+				margin-bottom: 32px;
+			}
+
+			.nav-section-title {
+				font-size: 11px;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				color: #999;
+				font-weight: 700;
+				margin-bottom: 16px;
+				padding-left: 12px;
+			}
+
+			nav ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			nav li {
+				margin: 4px 0;
+			}
+
+			nav a {
+				display: block;
+				padding: 10px 12px;
+				border-radius: 8px;
+				color: #555;
+				text-decoration: none;
+				font-weight: 500;
+				font-size: 14px;
+				transition: all 0.2s;
+			}
+
+			nav a:hover {
+				background: #f5f5f5;
+				color: var(--brand-primary);
+			}
+
 			main {
 				flex: 1;
-				padding: 40px;
+				padding: 64px;
 				display: flex;
 				justify-content: center;
 				overflow-y: auto;
 			}
+
 			.content-wrapper {
 				width: 100%;
-				max-width: 1400px;
-				margin: auto;
+				max-width: 1000px;
 			}
-			h1 {
+
+			h1, h2, h3, h4 {
+				font-family: 'Party', sans-serif;
+				font-weight: 900;
 				margin-top: 0;
+				color: #000;
+			}
+
+			h1 {
+				font-size: 4rem;
+				line-height: 1;
+				margin-bottom: 48px;
+				border: none;
+				padding: 0;
+			}
+
+			h2 {
 				font-size: 2.5rem;
-				border-bottom: 2px solid #eee;
-				padding-bottom: 10px;
-				margin-bottom: 30px;
+				margin-top: 64px;
+				margin-bottom: 24px;
+				border-bottom: 2px solid #000;
+				padding-bottom: 12px;
 			}
-			li {
-				margin: 10px 0;
+
+			h3 {
+				font-size: 1.8rem;
+				margin-top: 40px;
 			}
-			a {
-				text-decoration: none;
-				color: #0070f3;
+
+			p {
+				line-height: 1.6;
+				color: #444;
+				font-size: 1.1rem;
 			}
-			a:hover {
-				text-decoration: underline;
+
+			section {
+				margin-bottom: 80px;
 			}
 		</style>
 	</body>
